@@ -23,7 +23,7 @@ export default function CategoryGrid({ categories }: CategoryGridProps) {
           <Link key={category.id} href={`/categories/${category.slug}`} className="group">
             <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
               {categoryImage && (
-                <div className="aspect-w-16 aspect-h-9 bg-gray-200">
+                <div className="aspect-w-16 aspect-h-9 bg-gray-200 overflow-hidden">
                   <img
                     src={`${categoryImage.imgix_url}?w=600&h=400&fit=crop&auto=format,compress`}
                     alt={category.metadata?.category_name || category.title}

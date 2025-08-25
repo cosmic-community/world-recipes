@@ -19,7 +19,7 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
     <Link href={`/recipes/${recipe.slug}`} className="group">
       <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
         {featuredImage && (
-          <div className="aspect-w-16 aspect-h-9 bg-gray-200">
+          <div className="aspect-w-16 aspect-h-9 bg-gray-200 overflow-hidden">
             <img
               src={`${featuredImage.imgix_url}?w=600&h=400&fit=crop&auto=format,compress`}
               alt={recipe.metadata?.recipe_name || recipe.title}
