@@ -10,14 +10,14 @@ interface Props {
 export default async function CategoryPage({ params }: Props) {
   // IMPORTANT: In Next.js 15+, params are now Promises and MUST be awaited
   const { slug } = await params
-  const [category, recipes] = await Promise.all([
-    getCategory(slug),
-    getRecipesByCategory(slug)
-  ])
-
+  const category = await getCategory(slug)
+  
   if (!category) {
     notFound()
   }
+
+  // Use category ID instead of slug for filtering recipes
+  const recipes = await getRecipesByCategory(category.id)
 
   return (
     <div className="min-h-screen bg-gray-50 py-12">
@@ -33,7 +33,13 @@ export default async function CategoryPage({ params }: Props) {
           )}
         </div>
         
-        <RecipeGrid recipes={recipes} />
+        {recipes.length > 0 ? (
+          <RecipeGrid recipes={recipes} />
+        ) : (
+          <div className="text-center py-12">
+            <p className="text-gray-600 text-lg">No recipes found in this category yet.</p>
+          </div>
+        )}
       </div>
     </div>
   )
