@@ -1,6 +1,8 @@
 import Link from 'next/link'
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear()
+
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -35,7 +37,7 @@ export default function Footer() {
         
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-300">
-            © 2024 World Recipes Kitchen. Powered by Cosmic.
+            © {currentYear} World Recipes Kitchen. Powered by Cosmic.
           </p>
         </div>
       </div>
