@@ -1,32 +1,57 @@
-import Link from 'next/link'
-
 export default function Hero() {
   return (
-    <section className="relative bg-gradient-to-r from-primary-600 to-primary-800 text-white py-20">
-      <div className="absolute inset-0 bg-black opacity-20"></div>
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 className="text-5xl md:text-6xl font-bold mb-6">
-          World Recipes Kitchen
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: 'url(https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=2000&auto=format,compress)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      />
+      
+      {/* Black Gradient Overlay */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
+      
+      {/* Content */}
+      <div className="relative z-20 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+          World Recipes
+          <span className="block text-orange-400">Kitchen</span>
         </h1>
-        <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-          Discover authentic recipes from around the world with professional chef contributors.
-          From Mediterranean classics to Asian fusion, explore diverse culinary traditions.
+        
+        <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed">
+          Discover authentic flavors from around the globe. From traditional family recipes to modern culinary masterpieces.
         </p>
+        
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link
+          <a
             href="/recipes"
-            className="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary-600 bg-white hover:bg-gray-50 transition-colors"
+            className="inline-flex items-center px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white text-lg font-semibold rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
           >
-            Browse All Recipes
-          </Link>
-          <Link
+            Explore Recipes
+          </a>
+          
+          <a
             href="/categories"
-            className="inline-flex items-center px-8 py-3 border-2 border-white text-base font-medium rounded-md text-white hover:bg-white hover:text-primary-600 transition-colors"
+            className="inline-flex items-center px-8 py-4 bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white text-lg font-semibold rounded-lg transition-colors duration-200"
           >
-            Explore Categories
-          </Link>
+            Browse Categories
+          </a>
         </div>
       </div>
-    </section>
+      
+      {/* Decorative scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+        <div className="flex flex-col items-center text-white/60">
+          <span className="text-sm mb-2">Scroll to explore</span>
+          <div className="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-white/40 rounded-full mt-2 animate-bounce"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
